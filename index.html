@@ -1,36 +1,172 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>A-Frame Presentation</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Slides about A-Frame, a web framework for building virtual reality experiences with HTML.">
-    <link rel="shortcut icon" href="media/img/favicon.png">
-    <link rel="stylesheet" href="src/vendor/fonts/Fira-Sans/font.css">
-    <link rel="stylesheet" href="src/vendor/fonts/Ubuntu/font.css">
-    <link rel="stylesheet" href="src/vendor/css/reveal.css">
-    <link rel="stylesheet" href="src/lib/highlight.css">
-    <script src="src/lib/print-and-pdf-export.js"></script>
-    <link rel="stylesheet" href="src/main.css">
-    <script src="src/vendor/js/aframe.min.js"></script>
-    <script src="src/vendor/js/aframe-text-component.min.js"></script>
-    <script src="https://cdn.rawgit.com/AdaRoseEdwards/facetype-fonts-for-a-frame/master/Dawning-of-a-New-Day_Regular.js"></script>
-    <script src="https://cdn.rawgit.com/AdaRoseEdwards/facetype-fonts-for-a-frame/master/Exo%202%20Black_Regular.js"></script>
-    <script src="https://cdn.rawgit.com/AdaRoseEdwards/facetype-fonts-for-a-frame/master/Exo%202_Bold%20Italic.js"></script>
+    <title>Aetheria District Concept</title>
+    <script src="https://aframe.io/releases/0.7.0/aframe.js"></script>
   </head>
-
   <body>
-    <div class="reveal">
-      <div class="slides">
-        <section
-          data-markdown="content.md"
-          data-separator="\r?\n------\r?\n"
-          data-separator-vertical="\r?\n---\r?\n"
-          data-separator-notes="<!-- NOTES -->"></section>
-      </div>
-    </div>
-    <script src="src/vendor/lib/js/head.min.js"></script>
-    <script src="src/vendor/js/reveal.js"></script>
-    <script src="src/main.js"></script>
+    <a-scene fog="type: linear; color: #343434; near: 1; far: 500">
+
+      <a-entity position="4 22 -2" rotation="0 45 0">
+        <!-- change user-height to 0 to show correct height on mobile-->
+        <a-camera user-height="1"></a-camera>
+      </a-entity>
+
+      <a-assets>
+        <img id="sky" src="images/sky.jpg">
+        <a-asset-item id="pyramid-obj" src="models/pyramid.obj"></a-asset-item>
+        <a-asset-item id="pyramid-mtl" src="models/pyramid.mtl"></a-asset-item>
+        <a-asset-item id="building01-obj" src="models/building01.obj"></a-asset-item>
+        <a-asset-item id="building01-mtl" src="models/building01.mtl"></a-asset-item>
+        <a-asset-item id="building02-obj" src="models/building02.obj"></a-asset-item>
+        <a-asset-item id="building02-mtl" src="models/building02.mtl"></a-asset-item>
+      </a-assets>
+      <!-- street lamp -->
+      <a-entity position="-2 2.45 -5" rotation="0 65 0">
+        <a-box
+          scale="0.1 5 0.1"
+          color="gray"
+          shadow="receive: true"
+          material="roughness: 0.6; metalness: 0.5">
+        </a-box>
+        <a-box
+          scale="0.1 0.1 1.5"
+          position="0 2.5 0.75"
+          color="gray"
+          material="roughness: 0.6; metalness: 0.5">
+        </a-box>
+        <a-box
+          scale="0.3 0.1 0.6"
+          position="0 2.42 1.3"
+          color="gray"
+          material="roughness: 0.6; metalness: 0.5">
+        </a-box>
+        <a-sphere scale="0.1 0.1 0.2"
+          position="0 2.42 1.3"
+          color="yellow"
+          material="shader: flat">
+          <a-entity
+            light="color:#f6ff7b ;angle:38.11; penumbra:0.59; intensity:0.71; type:spot; castShadow:true"
+            rotation="-80 180 0">
+          </a-entity>
+        <a-sphere>
+      </a-entity>
+
+
+      <!-- floor -->
+      <a-entity
+        geometry="primitive: plane; width: 600; height: 600"
+        material="color: gray"
+        rotation="-90 0 0"
+        shadow="receive: true"
+        >
+      </a-entity>
+
+      <!-- rooftop -->
+      <a-entity>
+        <a-entity
+          obj-model="mtl:models/building01.mtl;obj:models/building01.obj"
+          scale="15 15 15"
+          position="0 11.238 0"
+          rotation="0 90 0" shadow="">
+        </a-entity>
+        <a-entity
+          obj-model="mtl:models/building01.mtl;obj:models/building01.obj"
+          scale="15 15 15"
+          position="0 18.988 5.566"
+          rotation="0 90 0"
+          shadow="">
+        </a-entity>
+        <a-entity
+          obj-model="mtl:models/building01.mtl;obj:models/building01.obj"
+          scale="15 15 15"
+          position="-9.661 21.481 0.026"
+          rotation="0 90 0"
+          shadow="">
+        </a-entity>
+      </a-entity>
+
+      <!-- front blocks-->
+      <a-entity position="0 0 -30" rotation="0 180 0">
+        <a-entity
+          obj-model="mtl:models/building01.mtl;obj:models/building01.obj"
+          scale="15 15 15"
+          position="0 11.238 0"
+          rotation="0 90 0" shadow="">
+        </a-entity>
+        <a-entity
+          obj-model="mtl:models/building01.mtl;obj:models/building01.obj"
+          scale="15 15 15"
+          position="0 18.988 5.566"
+          rotation="0 90 0"
+          shadow="">
+        </a-entity>
+        <a-entity
+          obj-model="mtl:models/building01.mtl;obj:models/building01.obj"
+          scale="15 15 15"
+          position="-9.661 21.481 0.026"
+          rotation="0 90 0"
+          shadow="">
+        </a-entity>
+      </a-entity>
+
+      <a-entity position="6.618 4.666 -18.672" rotation="0 90 0">
+        <a-entity obj-model="mtl:models/building01.mtl;obj:models/building01.obj" scale="15 15 15" position="0 11.238 0" rotation="0 90 0" shadow="">
+        </a-entity>
+        <a-entity obj-model="mtl:models/building01.mtl;obj:models/building01.obj" scale="15 15 15" position="0 18.988 5.566" rotation="0 90 0" shadow="">
+        </a-entity>
+        <a-entity obj-model="mtl:models/building01.mtl;obj:models/building01.obj" scale="15 15 15" position="-9.661 21.481 5.471" rotation="0 90 0" shadow="">
+        </a-entity>
+      </a-entity>
+
+
+      <!-- far skyline -->
+      <a-entity>
+        <a-entity geometry="width:10;height:100;depth:10" position="-323.578 0 -90.156">
+        </a-entity>
+
+        <a-entity geometry="depth:10;height:100;width:10" position="-323.578 -15.312 -118.544">
+        </a-entity>
+
+        <a-entity geometry="depth:10;height:100;width:10" position="-323.578 -7.583 -155.038" scale="1.389 1.389 1.389">
+        </a-entity>
+
+        <a-entity geometry="depth:10;height:100;width:10" position="-323.578 -4.512 -186.278">
+        </a-entity>
+
+      </a-entity>
+
+      <!-- skybox -->
+      <a-sky src="#sky" material="shader: standard; fog: false"></a-sky>
+
+      <!-- moon and moonlight -->
+      <a-entity
+        light="castShadow:true;shadowMapHeight:800;shadowMapWidth:800;shadowCameraLeft:0;shadowCameraRight:8.57;intensity:0.19; angle: 100; type:spot"
+        rotation="-36.54 -76.9 0"
+        position="-150 140 40">
+      </a-entity>
+
+      <!-- pyramid -->
+      <a-entity
+        obj-model="mtl:models/pyramid.mtl;obj:models/pyramid.obj"
+        scale="0.152 0.152 0.152"
+        position="-46.999 -0.641 -50.033"
+        rotation="0 90 0"
+        shadow="">
+      </a-entity>
+
+      <!-- other side of pyramid -->
+      <a-entity position="-46.999 -0.641 -50.033">
+        <a-entity obj-model="mtl:models/building02.mtl;obj:models/building02.obj" scale="0.1 0.5 0.1" position="-79.727 -60.724 -55.884" rotation="0 90 0" shadow="">
+        </a-entity>
+          <a-entity obj-model="mtl:models/building02.mtl;obj:models/building02.obj" scale="0.1 0.5 0.1" position="-56.283 -70.09 -55.302" rotation="0 90 0" shadow="">
+        </a-entity>
+        <a-entity obj-model="mtl:models/building02.mtl;obj:models/building02.obj" scale="0.1 0.5 0.1" position="-79.727 -81.637 -37.009" rotation="0 90 0" shadow="">
+        </a-entity>
+      </a-entity>
+
+      <a-entity light="type: ambient; intensity: 0.2"></a-entity>
+
+    </a-scene>
   </body>
 </html>
